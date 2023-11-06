@@ -30,9 +30,12 @@ class Main extends StatelessWidget {
         ),
         title: const Text("InfoCar App"),
         actions: const [
-          Icon(
-            Icons.search,
-            size: 30,
+          Padding(
+            padding: EdgeInsets.only(right: 8.0),
+            child: Icon(
+              Icons.search,
+              size: 30,
+            ),
           ),
         ],
       ),
@@ -104,7 +107,8 @@ class Main extends StatelessWidget {
               child: ListTile(
                 title: Text('Carros disponíveis'),
                 subtitle: Text('Confira a lista completa'),
-                trailing: Card(child: Padding(
+                trailing: Card(
+                    child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text('>'),
                 )),
