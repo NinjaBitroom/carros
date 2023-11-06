@@ -36,42 +36,159 @@ class Main extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: const Padding(
+        padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
             Card(
               color: Colors.black12,
               child: Column(
                 children: [
-                  const ListTile(
+                  ListTile(
                     title: Text('Marcas'),
                     trailing: Text('Ver todas'),
                   ),
-                  GridView.count(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
-                    children: const [
-                      Text('teste'),
-                      Text('teste'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
+                      Image(
+                        image: AssetImage('images/acuralogo.png'),
+                        width: 64,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                 ],
               ),
             ),
-            const Card(
+            Card(
               color: Colors.lightBlueAccent,
               child: ListTile(
                 title: Text('Carros disponíveis'),
                 subtitle: Text('Confira a lista completa'),
-                trailing: Text('>'),
+                trailing: Card(child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('>'),
+                )),
               ),
             ),
-            const Card(
+            Card(
               color: Colors.black26,
-              child: ListTile(
-                title: Text('Mais acessados'),
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text('Mais acessados'),
+                    ),
+                    Row(
+                      children: [
+                        Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Image(
+                                  image: AssetImage('images/download.jpeg'),
+                                  width: 64,
+                                ),
+                                Text('INTEGRA'),
+                                Text('Acura'),
+                                Text('\$31,500+'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Image(
+                                  image: AssetImage('images/download.jpeg'),
+                                  width: 64,
+                                ),
+                                Text('INTEGRA'),
+                                Text('Acura'),
+                                Text('\$31,500+'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Image(
+                                  image: AssetImage('images/download.jpeg'),
+                                  width: 64,
+                                ),
+                                Text('INTEGRA'),
+                                Text('Acura'),
+                                Text('\$31,500+'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Image(
+                                  image: AssetImage('images/download.jpeg'),
+                                  width: 64,
+                                ),
+                                Text('INTEGRA'),
+                                Text('Acura'),
+                                Text('\$31,500+'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ],
