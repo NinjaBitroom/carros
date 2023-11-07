@@ -1,3 +1,4 @@
+import 'package:carros/pages/carros.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,165 +27,7 @@ class MyHomePage extends StatefulWidget {
 class MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   List<Widget> pages = const [
-    Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Card(
-              color: Colors.black12,
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text('Marcas'),
-                    trailing: Text('Ver todas'),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                      Image(
-                        image: AssetImage('images/acuralogo.png'),
-                        width: 64,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              color: Colors.lightBlueAccent,
-              child: ListTile(
-                title: Text('Carros disponíveis'),
-                subtitle: Text('Confira a lista completa'),
-                trailing: Card(
-                    child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text('>'),
-                )),
-              ),
-            ),
-            Card(
-              color: Colors.black26,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    ListTile(
-                      title: Text('Mais acessados'),
-                    ),
-                    Row(
-                      children: [
-                        Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage('images/download.jpeg'),
-                                  width: 64,
-                                ),
-                                Text('INTEGRA'),
-                                Text('Acura'),
-                                Text('\$31,500+'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage('images/download.jpeg'),
-                                  width: 64,
-                                ),
-                                Text('INTEGRA'),
-                                Text('Acura'),
-                                Text('\$31,500+'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage('images/download.jpeg'),
-                                  width: 64,
-                                ),
-                                Text('INTEGRA'),
-                                Text('Acura'),
-                                Text('\$31,500+'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Image(
-                                  image: AssetImage('images/download.jpeg'),
-                                  width: 64,
-                                ),
-                                Text('INTEGRA'),
-                                Text('Acura'),
-                                Text('\$31,500+'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+    PageCar(),
     Text("2"),
     Text("3"),
   ];
@@ -214,7 +57,9 @@ class MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: Center(child: pages.elementAt(_selectedIndex),),
+      body: Center(
+        child: pages.elementAt(_selectedIndex),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
