@@ -9,7 +9,7 @@ class PageCar extends StatefulWidget {
 
 class _PageCarState extends State<PageCar> {
   carroItem() => Padding(
-        padding: const EdgeInsets.only(right: 8.0),
+        padding: const EdgeInsets.fromLTRB(0, 12, 8, 0),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -109,22 +109,42 @@ class _PageCarState extends State<PageCar> {
               ),
             ),
           ),
-          const Card(
-            color: Colors.lightBlueAccent,
-            child: ListTile(
-              title: Text('Carros disponíveis'),
-              subtitle: Text('Confira a lista completa'),
-              trailing: Card(
-                  child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text('>'),
-              )),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ListTile(
+                title: const Text('Carros disponíveis'),
+                subtitle: const Text('Confira a lista completa'),
+                trailing: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  width: 50,
+                  height: 50,
+                  child: const Center(
+                    child: Text(
+                      '>',
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
           Container(
-            color: Colors.black26,
+            decoration: BoxDecoration(
+              color: Colors.black26,
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(12.0),
               child: Column(
                 children: [
                   const Row(
@@ -132,8 +152,12 @@ class _PageCarState extends State<PageCar> {
                       Text('Mais acessados'),
                     ],
                   ),
-                  Row(
-                    children: List.generate(4, (index) => carroItem()),
+                  SizedBox(
+                    height: 120,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: List.generate(10, (index) => carroItem()),
+                    ),
                   )
                 ],
               ),
