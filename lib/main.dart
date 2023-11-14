@@ -1,8 +1,17 @@
+import 'package:carros/models/favoritos_carros.dart';
 import 'package:carros/pages/carros.dart';
+import 'package:carros/pages/favoritos.dart';
+import 'package:carros/pages/perfil.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => FavoritosCarros(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,8 +37,8 @@ class MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   List<Widget> pages = const [
     PageCar(),
-    Text("2"),
-    Text("3"),
+    PageFavoritos(),
+    PagePerfil(),
   ];
   void _changeIndex(int value) {
     setState(() {
