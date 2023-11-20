@@ -15,8 +15,18 @@ class _PageFavoritosState extends State<PageFavoritos> {
     return Consumer<FavoritosCarros>(
       builder: (context, value, child) => ListView.builder(
         itemCount: value.carros.length,
-        itemBuilder: (context, index) =>
-            Text("${value.carros[index].marca}: ${value.carros[index].modelo}"),
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            tileColor: Colors.amberAccent,
+            leading: Image.asset('images/download.jpeg'),
+            title: Text(value.carros[index].marca),
+            subtitle: Text(
+              '${value.carros[index].modelo} ${value.carros[index].descricao}',
+            ),
+            trailing: Text('R\$ ${value.carros[index].valor}'),
+          ),
+        ),
       ),
     );
   }
