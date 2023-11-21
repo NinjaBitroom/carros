@@ -19,7 +19,12 @@ class _PageFavoritosState extends State<PageFavoritos> {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             tileColor: Colors.amberAccent,
-            leading: Image.asset('images/download.jpeg'),
+            leading: Image.asset(
+              'images/download.jpeg',
+              centerSlice: Rect.largest,
+              width: 64,
+              height: 64,
+            ),
             title: Text(value.carros[index].marca),
             subtitle: Text(
               '${value.carros[index].modelo} ${value.carros[index].descricao}',
