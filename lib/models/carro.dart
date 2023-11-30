@@ -1,7 +1,7 @@
 class Carro {
   String modelo;
   String marca;
-  double valor;
+  String valor;
   String descricao;
   String imgUrl;
 
@@ -23,11 +23,11 @@ class Carro {
         Carro(
           modelo: model,
           marca: brand,
-          valor: 0,
+          valor: price,
           descricao: 'desc',
           imgUrl: 'imgUrl',
         ),
-      _ => throw const FormatException('Failed to load album.'),
+      _ => throw const FormatException('Erro para carregar o carro.'),
     };
   }
 }

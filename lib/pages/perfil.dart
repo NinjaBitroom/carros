@@ -17,7 +17,7 @@ class _PagePerfilState extends State<PagePerfil> {
   @override
   void initState() {
     super.initState();
-    carro = getCar();
+    carro = getCar('7', '6146', '2015-1');
   }
 
   @override
@@ -26,12 +26,31 @@ class _PagePerfilState extends State<PagePerfil> {
         future: carro,
         builder: (context, snap) {
           if (snap.hasData) {
-            return Column(
-              children: [Text(snap.data!.marca)],
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.lightBlueAccent,
+                    ),
+                    child: ListTile(
+                      title: Text(snap.data!.marca),
+                      subtitle: Text(snap.data!.modelo),
+                      leading: const CircleAvatar(
+                        backgroundImage: AssetImage('images/download.jpeg'),
+                        radius: 25,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             );
-          } else if (snap.hasData) {
-            // ...
+          } else if (snap.hasError) {
+            return Text('${snap.error}');
           }
+          return const CircularProgressIndicator();
         });
   }
 }
