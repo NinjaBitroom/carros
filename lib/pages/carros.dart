@@ -1,6 +1,6 @@
-import 'package:carros/pages/widgets/carros_disponiveis.dart';
-import 'package:carros/pages/widgets/mais_acessados.dart';
-import 'package:carros/pages/widgets/marcas.dart';
+import 'package:carros/pages/widgets/carros/carros_disponiveis.dart';
+import 'package:carros/pages/widgets/carros/mais_acessados.dart';
+import 'package:carros/pages/widgets/carros/marcas.dart';
 import 'package:flutter/material.dart';
 
 class PageCar extends StatefulWidget {

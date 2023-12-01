@@ -1,6 +1,9 @@
 import 'package:carros/models/carro.dart';
 import 'package:carros/models/favoritos_carros.dart';
+import 'package:carros/models/marca.dart';
+import 'package:carros/pages/widgets/perfil/marcas.dart';
 import 'package:carros/services/carroservice.dart';
+import 'package:carros/services/marcaservice.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,18 +15,18 @@ class PagePerfil extends StatefulWidget {
 }
 
 class _PagePerfilState extends State<PagePerfil> {
-  late Future<List<Carro>> carros;
+  late Future<List<Marca>> marcas;
 
   @override
   void initState() {
     super.initState();
-    carros = getCarros();
+    marcas = getMarcas();
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: carros,
+        future: marcas,
         builder: (context, snap) {
           if (snap.hasData) {
             return Padding(
@@ -31,21 +34,7 @@ class _PagePerfilState extends State<PagePerfil> {
               child: ListView.builder(
                 itemCount: snap.data!.length,
                 itemBuilder: (context, index) =>
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.lightBlueAccent,
-                    ),
-                    child: ListTile(
-                      title: Text('${snap.data![index].brand} ${snap.data![index].model} ${snap.data![index].codeFipe}'),
-                      subtitle: Text(snap.data![index].price),
-                      leading: const CircleAvatar(
-                        backgroundImage: AssetImage('images/download.jpeg'),
-                        radius: 25,
-                      ),
-                    ),
-                  ),
-                
+                  ListaMarcas(snap: snap, index: index),
               ),
             );
           } else if (snap.hasError) {
