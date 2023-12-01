@@ -12,39 +12,40 @@ class PagePerfil extends StatefulWidget {
 }
 
 class _PagePerfilState extends State<PagePerfil> {
-  late Future<Carro> carro;
+  late Future<List<Carro>> carros;
 
   @override
   void initState() {
     super.initState();
-    carro = getCar('7', '6146', '2015-1');
+    carros = getCarros();
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: carro,
+        future: carros,
         builder: (context, snap) {
           if (snap.hasData) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
+              child: ListView.builder(
+                itemCount: snap.data!.length,
+                itemBuilder: (context, index) =>
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: Colors.lightBlueAccent,
                     ),
                     child: ListTile(
-                      title: Text(snap.data!.marca),
-                      subtitle: Text(snap.data!.modelo),
+                      title: Text('${snap.data![index].brand} ${snap.data![index].model} ${snap.data![index].codeFipe}'),
+                      subtitle: Text(snap.data![index].price),
                       leading: const CircleAvatar(
                         backgroundImage: AssetImage('images/download.jpeg'),
                         radius: 25,
                       ),
                     ),
                   ),
-                ],
+                
               ),
             );
           } else if (snap.hasError) {
