@@ -1,4 +1,5 @@
 import 'package:carros/models/favoritos_carros.dart';
+import 'package:carros/pages/routes/carrodetalhe.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,9 +26,25 @@ class _PageFavoritosState extends State<PageFavoritos> {
               width: 64,
               height: 64,
             ),
-            title: Text(value.carros[index].brand),
-            subtitle: Text(value.carros[index].model),
-            trailing: Text(value.carros[index].price),
+            title: Text(
+                '${value.carros[index].marca.name} ${value.carros[index].modelo.name}'),
+            subtitle: Text(value.carros[index].ano.name),
+            trailing: ElevatedButton(
+              onPressed: () {
+                Provider.of<FavoritosCarros>(context, listen: false)
+                    .remove(value.carros[index]);
+              },
+              child: const Icon(Icons.highlight_remove),
+            ),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RotaCarro(
+                    marca: value.carros[index].marca,
+                    modelo: value.carros[index].modelo,
+                    ano: value.carros[index].ano),
+              ),
+            ),
           ),
         ),
       ),

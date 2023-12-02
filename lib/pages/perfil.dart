@@ -1,11 +1,7 @@
-import 'package:carros/models/carro.dart';
-import 'package:carros/models/favoritos_carros.dart';
 import 'package:carros/models/marca.dart';
 import 'package:carros/pages/widgets/perfil/marcas.dart';
-import 'package:carros/services/carroservice.dart';
 import 'package:carros/services/marcaservice.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class PagePerfil extends StatefulWidget {
   const PagePerfil({super.key});

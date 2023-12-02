@@ -1,9 +1,12 @@
 import 'package:carros/models/ano.dart';
 import 'package:carros/models/carro.dart';
+import 'package:carros/models/favoritos_carros.dart';
 import 'package:carros/models/marca.dart';
 import 'package:carros/models/modelo.dart';
+import 'package:carros/models/simple_car.dart';
 import 'package:carros/services/carroservice.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RotaCarro extends StatefulWidget {
   final Marca marca;
@@ -39,11 +42,39 @@ class _RotaCarroState extends State<RotaCarro> {
           mywidget = Column(
             children: [
               Image.asset('images/download.jpeg'),
-              Text('${snap.data!.brand} ${snap.data!.model} ${snap.data!.modelYear}'),
-              Text('Código FIPE: ${snap.data!.codeFipe}'),
-              Text('Combustível: ${snap.data!.fuel}(${snap.data!.fuelAcronym})'),
-              Text('Preço: ${snap.data!.price}'),
-              Text('Mês de referência: ${snap.data!.referenceMonth}'),
+              Text(
+                '${snap.data!.brand} ${snap.data!.model} ${snap.data!.modelYear}',
+                textScaleFactor: 2,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'Código FIPE: ${snap.data!.codeFipe}',
+                textScaleFactor: 1.5,
+              ),
+              Text(
+                'Combustível: ${snap.data!.fuel}(${snap.data!.fuelAcronym})',
+                textScaleFactor: 1.5,
+              ),
+              Text(
+                'Preço: ${snap.data!.price}',
+                textScaleFactor: 1.5,
+              ),
+              Text(
+                'Mês de referência: ${snap.data!.referenceMonth}',
+                textScaleFactor: 1.5,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Provider.of<FavoritosCarros>(context, listen: false).add(
+                    SimpleCar(
+                      marca: widget.marca,
+                      ano: widget.ano,
+                      modelo: widget.modelo,
+                    ),
+                  );
+                },
+                child: const Text('Favoritar'),
+              )
             ],
           );
         } else if (snap.hasError) {

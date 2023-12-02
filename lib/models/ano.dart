@@ -5,7 +5,6 @@ class AnoModelo {
   AnoModelo({required this.code, required this.name});
 
   factory AnoModelo.fromJson(Map<String, dynamic> json) {
-    print('Carregando ano');
     return switch (json) {
       {
         'code': String code,

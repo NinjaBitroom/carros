@@ -1,19 +1,19 @@
 import 'dart:collection';
-
-import 'package:carros/models/carro.dart';
+import 'package:carros/models/simple_car.dart';
 import 'package:flutter/material.dart';
 
 class FavoritosCarros extends ChangeNotifier {
-  final List<Carro> _carros = [];
+  final List<SimpleCar> _carros = [];
 
-  UnmodifiableListView<Carro> get carros => UnmodifiableListView(_carros);
+  UnmodifiableListView<SimpleCar> get carros => UnmodifiableListView(_carros);
 
-  void add(Carro carro) {
+  void add(SimpleCar carro) {
     _carros.add(carro);
     notifyListeners();
   }
 
-  void remove() {
-    
+  void remove(SimpleCar carro) {
+    _carros.remove(carro);
+    notifyListeners();
   }
 }

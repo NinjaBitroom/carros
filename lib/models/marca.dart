@@ -5,7 +5,6 @@ class Marca {
   Marca({required this.code, required this.name});
 
   factory Marca.fromJson(Map<String, dynamic> json) {
-    print('Carregando marca');
     return switch (json) {
       {
         'code': String code,

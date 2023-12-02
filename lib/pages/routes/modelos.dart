@@ -28,8 +28,6 @@ class _RotaModelosState extends State<RotaModelos> {
       builder: (context, snap) {
         Widget mywidget;
         if (snap.hasData) {
-          print('modelos.dart -> snap.hasData: ${snap.hasData}');
-          print('len -> ${snap.data!.length}');
           mywidget = ListView.builder(
             itemCount: snap.data!.length,
             itemBuilder: (context, index) => Padding(

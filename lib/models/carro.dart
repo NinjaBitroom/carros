@@ -22,7 +22,6 @@ class Carro {
   });
 
   factory Carro.fromJson(Map<String, dynamic> json) {
-    print('Carregando carro');
     return switch (json) {
       {
         'vehicleType': int vehicleType,
